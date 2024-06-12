@@ -1,10 +1,12 @@
 name: socket-sync-cronjob
 run-name: Socket Sync Cronjob
-on:
+on: 
   schedule:
-    - cron: '*/5 * * * *'
+  - cron: '*/5 * * * *'
+
 jobs:
   socket-sync:
+    name: Socket Sync
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
