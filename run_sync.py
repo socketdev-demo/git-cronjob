@@ -6,7 +6,7 @@ from socketsync.connectors.slack import Slack
 
 
 if __name__ == '__main__':
-    now = datetime.now(tz=timezone.utc) - timedelta(minutes=300)
+    now = datetime.now(tz=timezone.utc) - timedelta(minutes=30)
     now_str = now.strftime("%Y-%m-%d %H:%M")
     api_key = os.getenv("SOCKET_SECURITY_API_KEY") or exit(1)
     start_date = os.getenv("START_DATE") or now_str
