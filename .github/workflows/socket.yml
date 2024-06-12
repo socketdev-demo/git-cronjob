@@ -16,5 +16,8 @@ jobs:
       - name: install socket sync
         run: pip install socketsync
       - name: run sync
+        env:
+          SOCKET_SECURITY_API_KEY: ${{ secrets.SOCKET_SECURITY_API_KEY }}
+          SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
         run: python run_sync.py
           
