@@ -13,11 +13,8 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: '3.10' 
+      - name: install socket sync
+        run: pip install socketsync
       - name: run sync
-        env:
-          SOCKET_SECURITY_API_KEY: ${{ secrets.SOCKET_SECURITY_API_KEY }}
-          SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
-        run: |
-          pip install socketsync
-          python run_sync.py
+        run: python run_sync.py
           
