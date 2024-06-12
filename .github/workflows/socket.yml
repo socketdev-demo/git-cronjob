@@ -1,3 +1,5 @@
+name: socket-sync-cronjob
+run-name: Socket Sync Cronjob
 on:
   schedule:
     - cron: '*/5 * * * *'
