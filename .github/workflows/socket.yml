@@ -1,0 +1,19 @@
+on:
+  schedule:
+    - cron: '*/5 * * * *'
+jobs:
+  socket-sync:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.10' 
+      - name: run sync
+        env:
+          SOCKET_SECURITY_API_KEY: ${{ secrets.SOCKET_SECURITY_API_KEY }}
+          SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
+        run: |
+          pip install socketsync
+          python run_sync.py
+          
